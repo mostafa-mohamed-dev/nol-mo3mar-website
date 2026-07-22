@@ -72,30 +72,6 @@
             border-radius: 4px;
         }
 
-        /* --- PREMIUM CUSTOM CURSOR --- */
-        .custom-cursor {
-            width: 25px;
-            height: 25px;
-            border: 1px solid var(--gold-primary);
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 99999;
-            transition: width 0.3s, height 0.3s, background-color 0.3s;
-            box-shadow: 0 0 15px var(--gold-primary);
-        }
-        .custom-cursor-dot {
-            width: 5px;
-            height: 5px;
-            background-color: var(--gold-light);
-            border-radius: 50%;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 99999;
-        }
-
         /* --- PRELOADER ANIMATION --- */
         #preloader {
             position: fixed;
@@ -1311,10 +1287,6 @@
 </head>
 <body>
 
-    <!-- Premium Custom Cursor Outer -->
-    <div class="custom-cursor" id="cursor"></div>
-    <div class="custom-cursor-dot" id="cursor-dot"></div>
-
     <!-- Luxury Loading Screen -->
     <div id="preloader">
         <div class="loader-logo-container">
@@ -2073,33 +2045,6 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
-
-        // Luxury Custom Cursor Implementation
-        const cursor = document.getElementById('cursor');
-        const cursorDot = document.getElementById('cursor-dot');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-        });
-
-        // Hover expansions for active items
-        const dynamicLinks = document.querySelectorAll('a, button, input, select, textarea, .portfolio-item-card, .service-card-premium');
-        dynamicLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursor.style.width = '45px';
-                cursor.style.height = '45px';
-                cursor.style.backgroundColor = 'rgba(181, 151, 90, 0.1)';
-            });
-            link.addEventListener('mouseleave', () => {
-                cursor.style.width = '25px';
-                cursor.style.height = '25px';
-                cursor.style.backgroundColor = 'transparent';
-            });
         });
 
         // Before & After Interactive Slider Logic
