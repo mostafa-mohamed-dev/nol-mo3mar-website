@@ -1,0 +1,2176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نول معمار | الفخامة في التصميم، التنفيذ، والإشراف الهندسي</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="شركة نول معمار بالرياض - رواد المقاولات والإنشاءات الفاخرة، التصميم المعماري، التشطيبات الراقية، بناء المسابح، الواجهات المودرن، وتنسيق الحدائق بأعلى معايير الجودة.">
+    <meta name="keywords" content="نول معمار, مقاولات الرياض, فيلا فاخرة, تصميم داخلي, إشراف هندسي, تشطيبات فاخرة, واجهات مودرن, بناء مسابح, ملاعب أكريليك, عزل مائي">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="نول معمار | تصميم • تنفيذ • إشراف">
+    <meta property="og:description" content="نصمم مساحات ملهمة ونبني جودة تدوم وفق أعلى معايير الفخامة والاحترافية الهندسية في السعودية.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --bg-pure-black: #000000;
+            --bg-luxury-black: #0a0a0a;
+            --bg-card-black: #121212;
+            --gold-primary: #B5975A;
+            --gold-secondary: #C9B28C;
+            --gold-light: #DEC29A;
+            --dark-gray: #3A3A3A;
+            --off-white: #F5F3EF;
+            --text-muted: #aaaaaa;
+            --glass-bg: rgba(10, 10, 10, 0.75);
+            --glass-border: rgba(181, 151, 90, 0.2);
+            --luxury-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(181, 151, 90, 0.05);
+            --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- GLOBAL RESET & TYPOGRAPHY --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            background-color: var(--bg-pure-black);
+            color: var(--off-white);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-pure-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-primary);
+            border-radius: 4px;
+        }
+
+        /* --- PREMIUM CUSTOM CURSOR --- */
+        .custom-cursor {
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 99999;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            box-shadow: 0 0 15px var(--gold-primary);
+        }
+        .custom-cursor-dot {
+            width: 5px;
+            height: 5px;
+            background-color: var(--gold-light);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 99999;
+        }
+
+        /* --- PRELOADER ANIMATION --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-pure-black);
+            z-index: 999999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .loader-logo-container {
+            text-align: center;
+            position: relative;
+        }
+        .loader-logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp cubic-bezier(0.25, 1, 0.5, 1) 1s forwards 0.3s;
+        }
+        .loader-tagline {
+            font-size: 1rem;
+            color: var(--gold-secondary);
+            letter-spacing: 4px;
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards 1s;
+        }
+        .loader-bar {
+            width: 150px;
+            height: 1px;
+            background-color: rgba(181, 151, 90, 0.2);
+            margin: 20px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .loader-progress {
+            width: 0;
+            height: 100%;
+            background-color: var(--gold-primary);
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: loadProgress 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* --- STICKY TRANSPARENT NAVIGATION BAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 8%;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+            transition: var(--transition-smooth);
+        }
+        .navbar.scrolled {
+            padding: 15px 8%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .brand-logo-circle {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--gold-primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    color: var(--gold-primary);
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(181, 151, 90, 0.3);
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+        .brand-names {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1.2;
+        }
+        .brand-sub {
+            font-size: 0.75rem;
+            color: var(--off-white);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold-primary);
+            transition: var(--transition-smooth);
+        }
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-menu-btn {
+            display: none;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- CINEMATIC HERO SECTION --- */
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg-parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=90') no-repeat center center/cover;
+            z-index: 1;
+            transform: translateY(0);
+            will-change: transform;
+        }
+        .hero-overlay-gold {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(181, 151, 90, 0.03) 0%, rgba(0,0,0,0) 70%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 950px;
+            padding: 0 20px;
+        }
+        .hero-headline {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.4;
+            color: var(--off-white);
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards 1.5s;
+        }
+        .hero-headline span {
+    color: var(--gold-primary);
+    background: linear-gradient(45deg, var(--gold-primary), var(--gold-light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+        .hero-subheadline {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 750px;
+            margin: 0 auto 45px;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards 1.8s;
+        }
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards 2.1s;
+        }
+        .btn-luxury {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 0;
+            transition: var(--transition-smooth);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .btn-luxury-primary {
+            background-color: var(--gold-primary);
+            color: var(--bg-pure-black);
+            border: 1px solid var(--gold-primary);
+        }
+        .btn-luxury-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.6s;
+            z-index: -1;
+        }
+        .btn-luxury-primary:hover::before {
+            left: 100%;
+        }
+        .btn-luxury-primary:hover {
+              background-color: var(--gold-primary);
+            color: var(--bg-pure-black);
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(181, 151, 90, 0.3);
+        }
+        .btn-luxury-secondary {
+    background-color: var(--gold-primary);
+    color: var(--bg-pure-black);
+    border: 1px solid var(--gold-primary);
+}
+     .btn-luxury-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: 0.6s;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.btn-luxury-secondary:hover::before {
+    left: 100%;
+}
+        .btn-luxury-secondary:hover {
+            background-color: var(--gold-primary);
+            color: var(--bg-pure-black);
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(181, 151, 90, 0.3);
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 2.5s;
+        }
+        .scroll-mouse {
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            position: relative;
+        }
+        .scroll-wheel {
+            width: 4px;
+            height: 8px;
+            background-color: var(--gold-light);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: mouseScroll 1.6s infinite;
+        }
+
+        /* --- LAYOUT & SECTION ARCHITECTURE --- */
+        .section-padding {
+            padding: 140px 8% 100px;
+            position: relative;
+        }
+        .section-header {
+            max-width: 800px;
+            margin-bottom: 80px;
+        }
+        .section-tag {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--off-white);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold-primary);
+        }
+
+        /* --- STATS ACCENT LAYER --- */
+        .stats-strip {
+            background: linear-gradient(135deg, #0d0d0d 0%, #161616 100%);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 60px 8%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        .stat-item-box .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .stat-item-box .stat-label {
+            font-size: 1.05rem;
+            color: var(--off-white);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .about-text-content .about-lead {
+            font-size: 1.4rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .about-text-content .about-description {
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            font-size: 1.1rem;
+        }
+        .pillars-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .pillar-row {
+            display: flex;
+            gap: 25px;
+            background: rgba(255,255,255,0.02);
+            padding: 25px;
+            border-right: 3px solid var(--gold-primary);
+            transition: var(--transition-smooth);
+        }
+        .pillar-row:hover {
+            background: rgba(181, 151, 90, 0.05);
+            transform: translateX(-5px);
+        }
+        .pillar-icon-box {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-top: 5px;
+        }
+        .pillar-info h4 {
+            font-size: 1.25rem;
+            color: var(--off-white);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .pillar-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .about-image-wrapper {
+            position: relative;
+            height: 550px;
+        }
+        .about-img-frame {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--luxury-shadow);
+        }
+        .about-img-accent-box {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background-color: var(--gold-primary);
+            color: var(--bg-pure-black);
+            padding: 35px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            box-shadow: var(--luxury-shadow);
+        }
+
+        /* --- COMPANY VALUES SECTION --- */
+        .values-section {
+            background-color: var(--bg-luxury-black);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+        .value-luxury-card {
+            background: var(--bg-card-black);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 45px 30px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .value-luxury-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-top: 2px solid var(--gold-primary);
+            border-bottom: 2px solid var(--gold-primary);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        .value-luxury-card:hover::before {
+            transform: scaleX(1);
+        }
+        .value-luxury-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--glass-border);
+            box-shadow: var(--luxury-shadow);
+        }
+        .value-card-icon {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 25px;
+        }
+        .value-luxury-card h3 {
+            font-size: 1.35rem;
+            color: var(--off-white);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .value-luxury-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .why-us-image-container {
+            position: relative;
+        }
+        .why-us-main-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border: 1px solid var(--glass-border);
+        }
+        .why-us-floating-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 85%;
+            border: 1px solid var(--gold-primary);
+            pointer-events: none;
+        }
+        .why-us-reasons-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .reason-luxury-box {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .reason-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            opacity: 0.5;
+        }
+        .reason-details h4 {
+            font-size: 1.2rem;
+            color: var(--off-white);
+            margin-bottom: 8px;
+        }
+        .reason-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- WORKFLOW TIMELINE SECTION --- */
+        .workflow-section {
+            background-color: var(--bg-luxury-black);
+        }
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary) 15%, var(--gold-primary) 85%, transparent);
+            transform: translateY(-50%);
+        }
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-node {
+            text-align: center;
+            position: relative;
+        }
+        .timeline-circle {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-pure-black);
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(181, 151, 90, 0.4);
+            transition: var(--transition-smooth);
+        }
+        .timeline-node:hover .timeline-circle {
+            background-color: var(--gold-primary);
+            color: var(--bg-pure-black);
+            transform: scale(1.15);
+            box-shadow: 0 0 25px var(--gold-primary);
+        }
+        .timeline-node h4 {
+            font-size: 1.25rem;
+            color: var(--off-white);
+            margin-bottom: 10px;
+        }
+        .timeline-node p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 0 10px;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+        .service-card-premium {
+            background-color: var(--bg-card-black);
+            border: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+        .service-card-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--luxury-shadow);
+            border-color: var(--glass-border);
+        }
+        .service-img-box {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        .service-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .service-card-premium:hover .service-img-box img {
+            transform: scale(1.1) rotate(1deg);
+        }
+        .service-img-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, var(--bg-card-black));
+        }
+        .service-card-body {
+            padding: 35px;
+        }
+        .service-card-body h3 {
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .service-card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .service-features-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .service-tag-item {
+            background-color: rgba(255,255,255,0.04);
+            border: 1px solid rgba(181, 151, 90, 0.2);
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            color: var(--gold-secondary);
+        }
+
+        /* --- INTERACTIVE BEFORE/AFTER SLIDER SECTION --- */
+        .before-after-section {
+            background-color: var(--bg-luxury-black);
+        }
+        .slider-wrapper-centered {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .slider-container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--luxury-shadow);
+        }
+        .slider-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .slider-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .img-before {
+            z-index: 1;
+        }
+        .img-after {
+            z-index: 2;
+            width: 50%;
+        }
+        .slider-resize-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: var(--gold-primary);
+            z-index: 3;
+            cursor: ew-resize;
+            box-shadow: 0 0 10px var(--gold-primary);
+        }
+        .slider-handle-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 45px;
+            background-color: var(--bg-pure-black);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            align-items: center;
+            font-size: 0.8rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        .slider-label {
+            position: absolute;
+            bottom: 20px;
+            background-color: rgba(0,0,0,0.7);
+            padding: 5px 15px;
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            border: 1px solid var(--glass-border);
+            z-index: 3;
+        }
+        .label-before { right: 20px; }
+        .label-after { left: 20px; }
+
+        /* --- PORTFOLIO GALLERY SECTION --- */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .filter-btn-luxury {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            padding: 10px 24px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .filter-btn-luxury.active, .filter-btn-luxury:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            background-color: rgba(181, 151, 90, 0.05);
+        }
+        .portfolio-grid-masonry {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .portfolio-item-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.02);
+            display: block;
+        }
+        .portfolio-item-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .portfolio-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.2) 60%, transparent);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 35px;
+        }
+        .portfolio-item-card:hover img {
+            transform: scale(1.08);
+        }
+        .portfolio-item-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+        .portfolio-project-cat {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--gold-primary);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .portfolio-project-title {
+            font-size: 1.4rem;
+            color: var(--off-white);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .portfolio-meta-row {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-section {
+            background-color: var(--bg-luxury-black);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .testimonial-luxury-box {
+            background-color: var(--bg-card-black);
+            border: 1px solid rgba(255,255,255,0.02);
+            padding: 40px;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+        .testimonial-luxury-box:hover {
+            border-color: var(--glass-border);
+            transform: translateY(-5px);
+        }
+        .quote-icon-top {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 2.5rem;
+            color: rgba(181, 151, 90, 0.1);
+        }
+        .star-rating-row {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .testimonial-review-text {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .client-profile-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .client-avatar-placeholder {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--dark-gray);
+            border: 1px solid var(--gold-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .client-name-details h5 {
+            font-size: 1.05rem;
+            color: var(--off-white);
+            margin-bottom: 2px;
+        }
+        .client-name-details span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* --- CONTACT INFRASTRUCTURE & FORM --- */
+        .contact-grid-split {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 80px;
+        }
+        .contact-cards-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .contact-info-card {
+            background-color: var(--bg-luxury-black);
+            border: 1px solid rgba(255,255,255,0.02);
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            text-decoration: none;
+            color: var(--off-white);
+            transition: var(--transition-smooth);
+        }
+        .contact-info-card:hover {
+            border-color: var(--glass-border);
+            background-color: var(--bg-card-black);
+            transform: translateX(-5px);
+        }
+        .contact-icon-wrapper {
+            width: 55px;
+            height: 55px;
+            background-color: rgba(181, 151, 90, 0.1);
+            border: 1px solid var(--gold-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+        }
+        .contact-card-details span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .contact-card-details p {
+            font-size: 1.15rem;
+            font-weight: 700;
+            direction: ltr;
+        }
+        .contact-form-wrapper {
+            background-color: var(--bg-luxury-black);
+            border: 1px solid rgba(255,255,255,0.02);
+            padding: 50px;
+        }
+        .form-row-two-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        .form-group-luxury {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        .form-group-luxury label {
+            font-size: 0.9rem;
+            color: var(--gold-secondary);
+            font-weight: 600;
+        }
+        .input-luxury {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--dark-gray);
+            padding: 12px 5px;
+            color: var(--off-white);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+        }
+        .input-luxury:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+        select.input-luxury {
+            background-color: var(--bg-luxury-black);
+        }
+
+        /* --- FLOATING CALL TO ACTIONS --- */
+        .floating-actions-container {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .floating-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+        .floating-whatsapp {
+            background-color: #25D366;
+        }
+        .floating-phone {
+            background-color: #007bb5;
+        }
+        .floating-quote {
+            background-color: var(--gold-primary);
+            color: var(--bg-pure-black);
+            border: 1px solid var(--gold-primary);
+        }
+        .floating-quote:hover {
+            box-shadow: 0 0 20px var(--gold-primary);
+        }
+        .floating-tooltip {
+            position: absolute;
+            left: 70px;
+            right: auto;
+            background-color: var(--bg-card-black);
+            color: var(--gold-light);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            border: 1px solid var(--glass-border);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .floating-btn:hover .floating-tooltip {
+            opacity: 1;
+        }
+
+        /* --- FOOTER REGION --- */
+        .footer-luxury {
+            background-color: #030303;
+            border-top: 1px solid var(--glass-border);
+            padding: 80px 8% 30px;
+        }
+        .footer-grid-four-col {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        .footer-brand-about p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-link-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--dark-gray);
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .social-link-icon:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+        .footer-col-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .footer-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-menu-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+        .footer-menu-links a:hover {
+            color: var(--gold-primary);
+            padding-right: 5px;
+        }
+        .footer-contact-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .footer-contact-details i {
+            color: var(--gold-primary);
+            margin-left: 10px;
+        }
+        .footer-bottom-copyright {
+            border-top: 1px solid rgba(255,255,255,0.03);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666666;
+            font-size: 0.85rem;
+        }
+
+        /* --- KEYFRAMES FOR REVEAL & MOTION EFFECTS --- */
+        @keyframes loadProgress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes mouseScroll {
+            0% { top: 6px; opacity: 1; }
+            50% { top: 20px; opacity: 0; }
+            100% { top: 6px; opacity: 1; }
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 1200px) {
+            .values-grid { grid-template-columns: repeat(3, 1fr); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid-masonry { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 992px) {
+            .navbar { padding: 20px 5%; }
+            .nav-links { display: none; } /* Add responsive menu handling in real build */
+            .nav-menu-btn { display: block; }
+            .hero-headline { font-size: 2.8rem; }
+            .about-grid, .why-us-grid, .contact-grid-split { grid-template-columns: 1fr; gap: 50px; }
+            .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .timeline-grid { grid-template-columns: 1fr; gap: 40px; }
+            .timeline-line { display: none; }
+            .footer-grid-four-col { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .values-grid, .services-grid, .portfolio-grid-masonry, .testimonials-grid { grid-template-columns: 1fr; }
+            .hero-headline { font-size: 2.2rem; }
+            .hero-cta-group { flex-direction: column; gap: 15px; }
+            .form-row-two-col { grid-template-columns: 1fr; gap: 0; }
+            .footer-grid-four-col { grid-template-columns: 1fr; }
+            .footer-bottom-copyright { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Premium Custom Cursor Outer -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+
+    <!-- Luxury Loading Screen -->
+    <div id="preloader">
+        <div class="loader-logo-container">
+            <div class="loader-logo-text">نول معمار</div>
+            <div class="loader-tagline">تصميم • تنفيذ • إشراف</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Transparent Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="brand-identity">
+            <div class="brand-logo-circle">
+    <img src="logo.png" alt="نول معمار" class="logo-icon">
+</div>
+            <div class="brand-names">
+                <span class="brand-title">نول معمار</span>
+                <span class="brand-sub">NOL MO3MAR</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="#portfolio">أعمالنا</a></li>
+            <li><a href="#why-us">لماذا نحن</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+        <div class="nav-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Cinematic Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="hero-bg-parallax" id="heroBg"></div>
+        <div class="hero-overlay-gold"></div>
+        <div class="hero-content">
+            <h1 class="hero-headline">نصمم مساحات ملهمة<br><span>ونبني جودة تدوم</span></h1>
+            <p class="hero-subheadline">نقدّم حلولاً هندسية متكاملة في مجالات التصميم المعماري، التنفيذ الإنشائي، والإشراف الهندسي الفاخر بالاعتماد على أدق المعايير والاحترافية.</p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-luxury btn-luxury-primary">اطلب عرض سعر <i class="fa-solid fa-file-invoice-dollar"></i></a>
+                <a href="https://wa.me/966538900188" class="btn-luxury btn-luxury-secondary" target="_blank">تواصل عبر واتساب <i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator">
+            <span>اكتشف المزيد</span>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </a>
+    </header>
+
+    <!-- Animated Statistics Strip -->
+    <section class="stats-strip">
+        <div class="stat-item-box">
+            <div class="stat-number">+300</div>
+            <div class="stat-label">مشروع ناجح</div>
+        </div>
+        <div class="stat-item-box">
+            <div class="stat-number">+50</div>
+            <div class="stat-label">مهندس ومتخصص</div>
+        </div>
+        <div class="stat-item-box">
+            <div class="stat-number">+5</div>
+            <div class="stat-label">سنوات خبرة</div>
+        </div>
+        <div class="stat-item-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">الزام وضمان جودة</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="about-grid">
+            <div class="about-text-content">
+                <span class="section-tag">ARCHITECTURE & CRAFTSMANSHIP</span>
+                <h2 class="section-title">من نحن</h2>
+                <p class="about-lead" style="margin-top: 30px;">نول معمار شركة متخصصة في التصميم والتنفيذ والإشراف الهندسي، تقدم حلولاً متكاملة تجمع بين الجودة والابتكار والدقة الهندسية.</p>
+                <p class="about-description">نلتزم في نول معمار بأعلى معايير التنفيذ والاحترافية لتلبية تطلعات عملائنا في السوق السعودي، ونطوّر رؤى معمارية متميزة توازن بين الهوية الأصيلة والتطور العصري الحديث.</p>
+                
+                <div class="pillars-container">
+                    <div class="pillar-row">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-eye"></i></div>
+                        <div class="pillar-info">
+                            <h4>رؤيتنا</h4>
+                            <p>أن نكون الشريك الأول والخيار الأرقى في عالم البناء والإنشاءات الفاخرة على مستوى المملكة العربية السعودية.</p>
+                        </div>
+                    </div>
+                    <div class="pillar-row">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-bullseye"></i></div>
+                        <div class="pillar-info">
+                            <h4>رسالتنا</h4>
+                            <p>تحويل المخططات الهندسية والأفكار الإبداعية إلى واقع ملموس يتميز بالصلابة، الفخامة، والجمال المعماري الخالد.</p>
+                        </div>
+                    </div>
+                    <div class="pillar-row">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-landmark"></i></div>
+                        <div class="pillar-info">
+                            <h4>فلسفتنا</h4>
+                            <p>العمارة ليست مجرد جدران، بل هي صياغة متقنة لأسلوب الحياة تندمج فيها الهندسة المبتكرة مع دقة المواد والتشطيب.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="نول معمار فخامة الهندسة" class="about-img-frame">
+                <div class="about-img-accent-box">
+                    الهندسة<br><span style="color: var(--bg-pure-black); font-size: 1.1rem; font-weight: 400;">كما يجب أن تكون</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values Section -->
+    <section class="section-padding values-section">
+        <div class="section-header" style="text-align: center; margin: 0 auto 80px;">
+            <span class="section-tag">OUR VALUES</span>
+            <h2 class="section-title">قيمنا الراسخة</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-luxury-card">
+                <div class="value-card-icon"><i class="fa-solid fa-gem"></i></div>
+                <h3>الجودة</h3>
+                <p>اختيار أفضل المواد وتطبيق أعلى المواصفات والمقاييس لضمان عمر مديد للمبنى.</p>
+            </div>
+            <div class="value-luxury-card">
+                <div class="value-card-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3>الدقة</h3>
+                <p>تنفيذ أدق التفاصيل المعمارية والإنشائية دون أي تهاون أو هوامش خطأ.</p>
+            </div>
+            <div class="value-luxury-card">
+                <div class="value-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3>الابتكار</h3>
+                <p>إيجاد حلول تصميمية وعملية متطورة تواكب أحدث صيحات العمارة العالمية.</p>
+            </div>
+            <div class="value-luxury-card">
+                <div class="value-card-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>الالتزام</h3>
+                <p>الاحترام الكامل للمواعيد المحددة والشفافية التامة في كافة مراحل البناء.</p>
+            </div>
+            <div class="value-luxury-card">
+                <div class="value-card-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <h3>الإشراف الهندسي</h3>
+                <p>رقابة دورية حازمة من كبار المهندسين لضمان التطابق التام مع الكود والمخططات.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section-padding" id="why-us">
+        <div class="why-us-grid">
+            <div class="why-us-image-container">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="تميز نول معمار" class="why-us-main-img">
+                <div class="why-us-floating-overlay"></div>
+            </div>
+            <div class="why-us-content">
+                <span class="section-tag">THE REASONS FOR EXCELLENCE</span>
+                <h2 class="section-title" style="margin-bottom: 45px;">لماذا تختار نول معمار؟</h2>
+                
+                <div class="why-us-reasons-list">
+                    <div class="reason-luxury-box">
+                        <span class="reason-num">01</span>
+                        <div class="reason-details">
+                            <h4>أفضل المواد</h4>
+                            <p>ننتقي خامات البناء والتشطيب من أفخم الموردين محلياً وعالمياً لنضمن أعلى مستويات المتانة.</p>
+                        </div>
+                    </div>
+                    <div class="reason-luxury-box">
+                        <span class="reason-num">02</span>
+                        <div class="reason-details">
+                            <h4>أفضل المهندسين</h4>
+                            <p>نمتلك كادراً هندسياً ذو خبرة عريضة في التعامل مع المشاريع والفلل السكنية الفاخرة.</p>
+                        </div>
+                    </div>
+                    <div class="reason-luxury-box">
+                        <span class="reason-num">03</span>
+                        <div class="reason-details">
+                            <h4>الالتزام بالمواعيد</h4>
+                            <p>جدولة زمنية دقيقة وذكية لكافة بنود التنفيذ تضمن تسليم العمل في الوقت المحدد دون تأخير.</p>
+                        </div>
+                    </div>
+                    <div class="reason-luxury-box">
+                        <span class="reason-num">04</span>
+                        <div class="reason-details">
+                            <h4>ضمان الجودة</h4>
+                            <p>نمنح عملاءنا شهادات ضمان حقيقية وموثقة على كافة أعمال العزل والتنفيذ الإنشائي.</p>
+                        </div>
+                    </div>
+                    <div class="reason-luxury-box">
+                        <span class="reason-num">05</span>
+                        <div class="reason-details">
+                            <h4>خبرة طويلة</h4>
+                            <p>سنوات من العمل والعطاء في السوق السعودي صقلت مهارتنا وجعلتنا الاختيار الموثوق دائماً.</p>
+                        </div>
+                    </div>
+                    <div class="reason-luxury-box">
+                        <span class="reason-num">06</span>
+                        <div class="reason-details">
+                            <h4>حلول متكاملة</h4>
+                            <p>ندير مشروعك من الفكرة والمخطط وحتى المفتاح، مما يوفر عليك عناء التعامل مع أطراف متعددة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="section-padding workflow-section">
+        <div class="section-header" style="text-align: center; margin: 0 auto 80px;">
+            <span class="section-tag">EXECUTION WORKFLOW</span>
+            <h2 class="section-title">رحلة العمل معنا</h2>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-grid">
+                <div class="timeline-node">
+                    <div class="timeline-circle">1</div>
+                    <h4>الاستشارة</h4>
+                    <p>جلسة مخصصة لفهم متطلباتك وميزانيتك وصياغة التصور الأولي للمشروع.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-circle">2</div>
+                    <h4>المعاينة</h4>
+                    <p>فحص دقيق للموقع ورفع المقاسات ودراسة طبيعة التربة والبيئة المحيطة.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-circle">3</div>
+                    <h4>التصميم</h4>
+                    <p>ابتكار المخططات الهندسية والواجهات والديكورات ثلاثية الأبعاد بدقة فائقة.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-circle">4</div>
+                    <h4>التنفيذ</h4>
+                    <p>بدء أعمال الحفر، العظم، اللياسة والتشطيب تحت إشراف هندسي صارم ومستمر.</p>
+                </div>
+                <div class="timeline-node">
+                    <div class="timeline-circle">5</div>
+                    <h4>التسليم</h4>
+                    <p>تسليم نهائي للمشروع بكامل طاقته ومواصفاته الفاخرة وبأعلى جودة ترضيك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="services">
+        <div class="section-header">
+            <span class="section-tag">OUR PREMIUM SERVICES</span>
+            <h2 class="section-title">خدماتنا الهندسية</h2>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/structural-construction.png" alt="الأعمال الإنشائية">
+                </div>
+                <div class="service-card-body">
+                    <h3>الأعمال الإنشائية والعظم</h3>
+                    <p>تنفيذ متكامل للهياكل الخرسانية والهياكل الحديدية للمباني بأساليب إنشائية متطورة ومطابقة بالكامل لكود البناء السعودي.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">هياكل خرسانية</span>
+                        <span class="service-tag-item">حديد تسليح</span>
+                        <span class="service-tag-item">أساسات</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/modern-cladding.png" alt="الواجهات الحديثة">
+                </div>
+                <div class="service-card-body">
+                    <h3>الواجهات الحديثة والتركيب الميكانيكي</h3>
+                    <p>تنفيذ كافة أنواع الواجهات الخارجية طبقاً للمواصفات الهندسية الفاخرة، مع الدمج المتقن للعناصر المودرن والكلاسيكية.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">Cladding</span>
+                        <span class="service-tag-item">Profile</span>
+                        <span class="service-tag-item">حجر ميكانيكي ويدوي</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/luxury-interior-design.png" alt="التشطيبات الفاخرة">
+                </div>
+                <div class="service-card-body">
+                    <h3>التشطيبات الداخلية والخارجية</h3>
+                    <p>حلول تشطيب متكاملة للقصور والفلل السكنية والمباني التجارية، نوفر روعة البورسلان، الدهانات الفاخرة، واللياسة الاحترافية.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">أرضيات فاخرة</span>
+                        <span class="service-tag-item">لياسة ودهانات</span>
+                        <span class="service-tag-item">دقة التشطيب</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/swimming-pool-finishing.png" alt="المسابح وتجهيزاتها">
+                </div>
+                <div class="service-card-body">
+                    <h3>المسابح وتجهيزاتها المتكاملة</h3>
+                    <p>إنشاء وبناء المسابح الفاخرة بمختلف الأحجام والأنظمة الحديثة (سكيمر وأوفر فلو) مع تأمين كافة التمديدات الميكانيكية والفلترة.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">Pool Construction</span>
+                        <span class="service-tag-item">أنظمة وفلاتر</span>
+                        <span class="service-tag-item">تشطيب موزاييك</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 5 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/artificial-grass1.png" alt="ملاعب رياضية">
+                </div>
+                <div class="service-card-body">
+                    <h3>ملاعب الأكريليك والملاعب الرياضية</h3>
+                    <p>تجهيز وتخطيط الملاعب الرياضية وملاعب كرة القدم بأرضيات الأكريليك العالمية المعتمدة لامتصاص الصدمات ومقاومة العوامل الجوية.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">Acrylic Courts</span>
+                        <span class="service-tag-item">عشب صناعي</span>
+                        <span class="service-tag-item">أرضيات ملاعب</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 6 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/gypsum-board-interior-design.png" alt="الجبس بورد">
+                </div>
+                <div class="service-card-body">
+                    <h3>الجبس بورد والديكورات الحديثة</h3>
+                    <p>تركيب وتشكيل الأسقف المستعارة والقواطع الديكورية من الجبس بورد الفاخر، وتطبيق توزيع إضاءة مخفية ومودرن تضفي لمسة فنية.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">أسقف مستعارة</span>
+                        <span class="service-tag-item">قواطع ديكورية</span>
+                        <span class="service-tag-item">Luxury Interior</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 7 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/stone-pathways1.png" alt="تنسيق الحدائق">
+                </div>
+                <div class="service-card-body">
+                    <h3>تنسيق الحدائق والمساحات الخارجية</h3>
+                    <p>تخطيط وتنسيق الحدائق المنزلية والتجارية مع إدراج أنظمة الضباب، الإنارة الديكورية الفاخرة، والجلسات الخارجية الساحرة.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">Residential Gardens</span>
+                        <span class="service-tag-item">Landscape Lighting</span>
+                        <span class="service-tag-item">شلالات ونوافير</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 8 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/luxury-walkways.png" alt="الممرات الفاخرة">
+                </div>
+                <div class="service-card-body">
+                    <h3>إنشاء وتنسيق الممرات الفاخرة</h3>
+                    <p>رصف وتصميم الممرات الحجرية الفاخرة، الانترلوك، والبلاطات الديكورية التي تربط أجزاء الفيلا والحديقة بأناقة تامة وبأشكال هندسية.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">Stone Pathways</span>
+                        <span class="service-tag-item">Luxury Walkways</span>
+                        <span class="service-tag-item">انترلوك ديكوري</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 9 -->
+            <div class="service-card-premium">
+                <div class="service-img-box">
+                    <img src="images/waterproofing1.png" alt="العزل المائي">
+                </div>
+                <div class="service-card-body">
+                    <h3>العزل المائي الحراري المتكامل</h3>
+                    <p>تطبيق أحدث أنظمة العزل المائي لأسطح المباني، الخزانات، والمسابح لحمايتها بالكامل من أي تسريبات للمياه عبر مواد متميزة عالمياً.</p>
+                    <div class="service-features-tags">
+                        <span class="service-tag-item">Roof & Tank Insulation</span>
+                        <span class="service-tag-item">ضمان حقيقي</span>
+                        <span class="service-tag-item">أنظمة عالمية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px;"><i class="fa-solid fa-screwdriver-wrench" style="color: var(--gold-primary);"></i> كما نقدم خدمات متميزة في <strong>ترميم وتجديد المباني القائمة</strong> وتحويلها إلى تحف معمارية عصرية.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Before & After Section -->
+    <section class="section-padding before-after-section">
+        <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
+            <span class="section-tag">TRANSFORMATION RECORD</span>
+            <h2 class="section-title">شاهد روعة التحول (قبل / بعد)</h2>
+        </div>
+        <div class="slider-wrapper-centered">
+            <div class="slider-container" id="beforeAfterSlider">
+                <div class="slider-img img-before">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="المشروع قبل التنفيذ">
+                </div>
+                <div class="slider-img img-after" id="afterImgWrapper">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="المشروع بعد التنفيذ والتشطيب">
+                </div>
+                <div class="slider-resize-handle" id="sliderHandle">
+                    <div class="slider-handle-button">
+                        <i class="fa-solid fa-chevron-right"></i>
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                </div>
+                <div class="slider-label label-before">مرحلة البناء والعظم</div>
+                <div class="slider-label label-after">التحفة المعمارية الجاهزة</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section-padding" id="portfolio">
+        <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
+            <span class="section-tag">ARCHITECTURAL PORTFOLIO</span>
+            <h2 class="section-title">معرض أعمالنا الفاخرة</h2>
+        </div>
+        
+        <div class="portfolio-filters">
+            <button class="filter-btn-luxury active" data-filter="all">الكل</button>
+            <button class="filter-btn-luxury" data-filter="facades">واجهات</button>
+            <button class="filter-btn-luxury" data-filter="finishing">تشطيبات</button>
+            <button class="filter-btn-luxury" data-filter="pools">مسابح</button>
+            <button class="filter-btn-luxury" data-filter="courts">ملاعب</button>
+            <button class="filter-btn-luxury" data-filter="gardens">حدائق وممرات</button>
+            <button class="filter-btn-luxury" data-filter="insulation">عزل مائي</button>
+        </div>
+        
+        <div class="portfolio-grid-masonry">
+            <!-- Project 1 -->
+            <div class="portfolio-item-card" data-category="facades">
+                <img src="images/luxury-villa.png" alt="فيلا حطين">
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-project-cat">MODERN FACADE</span>
+                    <h3 class="portfolio-project-title">فيلا سكنية فاخرة - حي حطين</h3>
+                    <div class="portfolio-meta-row">
+                        <span><i class="fa-solid fa-location-dot"></i> الرياض</span>
+                        <span>٢٠٢٥ م</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="portfolio-item-card" data-category="pools">
+                <img src="images/villa-swimming-pool.png" alt="مسبح أوفر فلو">
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-project-cat">SWIMMING POOL</span>
+                    <h3 class="portfolio-project-title">مسبح أوفر فلو مع شلال جداري</h3>
+                    <div class="portfolio-meta-row">
+                        <span><i class="fa-solid fa-location-dot"></i> حي النرجس، الرياض</span>
+                        <span>٢٠٢٦ م</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="portfolio-item-card" data-category="finishing">
+                <img src="images/gypsum-board-interior-design1.png" alt="مجلس مودرن">
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-project-cat">INTERIOR & GYPSUM</span>
+                    <h3 class="portfolio-project-title">مجلس فاخر وديكورات جبسية مستعارة</h3>
+                    <div class="portfolio-meta-row">
+                        <span><i class="fa-solid fa-location-dot"></i> حي الملقا، الرياض</span>
+                        <span>٢٠٢٥ م</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="portfolio-item-card" data-category="gardens">
+                <img src="images/stone-pathways.png" alt="حديقة فيلا">
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-project-cat">LANDSCAPING</span>
+                    <h3 class="portfolio-project-title">تنسيق حديقة خارجية وممرات حجرية ليلاً</h3>
+                    <div class="portfolio-meta-row">
+                        <span><i class="fa-solid fa-location-dot"></i> حي الياسمين</span>
+                        <span>٢٠٢٤ م</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="portfolio-item-card" data-category="courts">
+                <img src="images/acrylic-sports-court1.png" alt="ملعب أكريليك">
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-project-cat">SPORTS FACILITIES</span>
+                    <h3 class="portfolio-project-title">ملعب رياضي متعدد أرضية أكريليك</h3>
+                    <div class="portfolio-meta-row">
+                        <span><i class="fa-solid fa-location-dot"></i> الرياض</span>
+                        <span>٢٠٢٥ م</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 6 -->
+            <div class="portfolio-item-card" data-category="insulation">
+                <img src="images/Roofing work under clear urban skies.png" alt="عزل مائي">
+                <div class="portfolio-card-overlay">
+                    <span class="portfolio-project-cat">WATERPROOFING</span>
+                    <h3 class="portfolio-project-title">عزل مائي متكامل لأسطح قصر سكني</h3>
+                    <div class="portfolio-meta-row">
+                        <span><i class="fa-solid fa-location-dot"></i> الدرعية</span>
+                        <span>٢٠٢٦ م</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding testimonials-section">
+        <div class="section-header" style="text-align: center; margin: 0 auto 80px;">
+            <span class="section-tag">CLIENT TESTIMONIALS</span>
+            <h2 class="section-title">ماذا يقول عملاؤنا؟</h2>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-luxury-box">
+                <i class="fa-solid fa-quote-right quote-icon-top"></i>
+                <div class="star-rating-row">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-review-text">"تعاملت مع نول معمار لتنفيذ واجهة فيلتي بالكامل حجر ميكانيكي مع بروفايل مودرن. دقة التنفيذ كانت مذهلة والالتزام بالجدول الزمني أراحني كثيراً. مهندسون قمة في الرقي والاحترافية."</p>
+                <div class="client-profile-meta">
+                    <div class="client-avatar-placeholder">ع</div>
+                    <div class="client-name-details">
+                        <h5>أبو عبد العزيز</h5>
+                        <span>صاحب فيلا - حي حطين</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-luxury-box">
+                <i class="fa-solid fa-quote-right quote-icon-top"></i>
+                <div class="star-rating-row">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-review-text">"أشكر شركة نول معمار على بناء وإعداد مسبح القصر الخاص بنا مع العزل المائي وأنظمة التصفية الميكانيكية الحديثة. خدمة استثنائية وضمانات موثقة تمنح الطمأنينة."</p>
+                <div class="client-profile-meta">
+                    <div class="client-avatar-placeholder">م</div>
+                    <div class="client-name-details">
+                        <h5>المهندس محمد الشمري</h5>
+                        <span>الرياض</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-luxury-box">
+                <i class="fa-solid fa-quote-right quote-icon-top"></i>
+                <div class="star-rating-row">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-review-text">"قمة الفخامة والاحترافية والالتزام بالمواعيد والمخططات بالتفصيل. أنصح بشدة بالتعامل معهم في مجالات الديكورات وتنسيق الحدائق والممرات الراقية."</p>
+                <div class="client-profile-meta">
+                    <div class="client-avatar-placeholder">س</div>
+                    <div class="client-name-details">
+                        <h5>الأستاذ سلطان العتيبي</h5>
+                        <span>حي الملقا</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="section-header">
+            <span class="section-tag">START YOUR JOURNEY</span>
+            <h2 class="section-title">تواصل معنا الآن</h2>
+        </div>
+        
+        <div class="contact-grid-split">
+            <div class="contact-cards-sidebar">
+                <a href="tel:+966538900188" class="contact-info-card">
+                    <div class="contact-icon-wrapper"><i class="fa-solid fa-phone"></i></div>
+                    <div class="contact-card-details">
+                        <span>اتصال مباشر</span>
+                        <p>+966 538 900 188</p>
+                    </div>
+                </a>
+                <a href="mailto:nol.mo3mar@gmail.com" class="contact-info-card">
+                    <div class="contact-icon-wrapper"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-card-details">
+                        <span>البريد الإلكتروني</span>
+                        <p style="direction: ltr;">nol.mo3mar@gmail.com</p>
+                    </div>
+                </a>
+                <div class="contact-info-card">
+                    <div class="contact-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="contact-card-details">
+                        <span>المقر الرئيسي</span>
+                        <p>الرياض، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+                <a href="https://instagram.com/Arch.nol" target="_blank" class="contact-info-card">
+                    <div class="contact-icon-wrapper"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="contact-card-details">
+                        <span>حساب الانستجرام الرسمي</span>
+                        <p>@Arch.nol</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form id="luxuryQuoteForm">
+                    <div class="form-row-two-col">
+                        <div class="form-group-luxury">
+                            <label for="clientName">الاسم الكريم *</label>
+                            <input type="text" id="clientName" class="input-luxury" required placeholder="أدخل اسمك بالكامل">
+                        </div>
+                        <div class="form-group-luxury">
+                            <label for="clientPhone">رقم الجوال *</label>
+                            <input type="tel" id="clientPhone" class="input-luxury" required placeholder="+966 5xxxxxxx">
+                        </div>
+                    </div>
+                    <div class="form-row-two-col">
+                        <div class="form-group-luxury">
+                            <label for="clientCity">المدينة *</label>
+                            <input type="text" id="clientCity" class="input-luxury" required placeholder="مثال: الرياض">
+                        </div>
+                        <div class="form-group-luxury">
+                            <label for="projectType">نوع المشروع المطلوب *</label>
+                            <select id="projectType" class="input-luxury" required>
+                                <option value="" disabled selected>اختر الخدمة</option>
+                                <option value="واجهات مودرن">واجهات وتشطيبات خارجية</option>
+                                <option value="تشطيب داخلي وجبس">تشطيب داخلي وديكورات جبس</option>
+                                <option value="بناء مسابح">إنشاء وتجهيز مسابح</option>
+                                <option value="ملاعب رياضية">ملاعب رياضية وأكريليك</option>
+                                <option value="تنسيق حدائق وممرات">تنسيق حدائق وممرات فاخرة</option>
+                                <option value="عزل مائي وحراري">عزل مائي متكامل</option>
+                                <option value="أعمال إنشائية وعظم">أعمال إنشائية وعظم</option>
+                                <option value="ترميم مباني">ترميم وتجديد مباني</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group-luxury">
+                        <label for="clientMessage">تفاصيل المشروع والرسالة *</label>
+                        <textarea id="clientMessage" class="input-luxury" rows="4" required placeholder="تحدث معنا عن تفاصيل ومساحة مشروعك المعماري..."></textarea>
+                    </div>
+                    
+                    <button type="button" onclick="sendToWhatsApp()" class="btn-luxury btn-luxury-primary" style="width: 100%; justify-content: center; margin-top: 20px; cursor: pointer;">
+                        إرسال الطلب عبر واتساب مباشر <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Luxury Action Buttons -->
+    <div class="floating-actions-container">
+        <a href="https://wa.me/966538900188" target="_blank" class="floating-btn floating-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="floating-tooltip">راسلنا على واتساب</span>
+        </a>
+        <a href="tel:+966538900188" class="floating-btn floating-phone">
+            <i class="fa-solid fa-phone"></i>
+            <span class="floating-tooltip">اتصل بنا فورا</span>
+        </a>
+        <a href="#contact" class="floating-btn floating-quote">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <span class="floating-tooltip">اطلب عرض سعر</span>
+        </a>
+    </div>
+
+    <!-- Luxury Footer -->
+    <footer class="footer-luxury">
+        <div class="footer-grid-four-col">
+            <div class="footer-brand-about">
+                <a href="#home" class="brand-identity">
+                    <div class="brand-logo-circle">
+    <img src="logo.png" alt="نول معمار" class="logo-icon">
+</div>
+                    <div class="brand-names">
+                        <span class="brand-title">نول معمار</span>
+                        <span class="brand-sub">NOL MO3MAR</span>
+                    </div>
+                </a>
+                <p>نقدم حلولاً هندسية متكاملة في التصميم والتنفيذ والإشراف الفاخر وفق أعلى مقاييس المتانة والجودة المعمارية العصرية في السوق السعودي.</p>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com/Arch.nol" target="_blank" class="social-link-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/966538900188" target="_blank" class="social-link-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">روابط سريعة</h4>
+                <ul class="footer-menu-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا الهندسية</a></li>
+                    <li><a href="#portfolio">معرض الأعمال</a></li>
+                    <li><a href="#why-us">لماذا نحن</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">خدماتنا الرئيسية</h4>
+                <ul class="footer-menu-links">
+                    <li><a href="#services">الواجهات والتركيب الميكانيكي</a></li>
+                    <li><a href="#services">بناء وتجهيز عزل المسابح</a></li>
+                    <li><a href="#services">ملاعب الأكريليك والرياضية</a></li>
+                    <li><a href="#services">تنسيق الحدائق والممرات الفاخرة</a></li>
+                    <li><a href="#services">التشطيبات الفاخرة والجبس بورد</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-col-title">معلومات الاتصال</h4>
+                <ul class="footer-contact-details">
+                    <li style="direction: ltr; text-align: right;">
+                    <i class="fa-solid fa-location-dot"></i>
+                      الرياض، المملكة العربية السعودية
+                </li>
+                    <li style="direction: ltr; text-align: right;"><i class="fa-solid fa-phone"></i> +966 538 900 188</li>
+                    <li style="direction: ltr; text-align: right;"><i class="fa-solid fa-envelope"></i> nol.mo3mar@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-copyright">
+            <span>&copy; ٢٠٢٦ نول معمار. جميع الحقوق محفوظة.</span>
+             </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT EFFECTS -->
+    <script>
+        // Hide preloader when everything is fully loaded
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.visibility = 'hidden';
+            }, 800);
+        });
+
+        // Premium Scroll Background Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.pageYOffset;
+            const heroBg = document.getElementById('heroBg');
+            heroBg.style.transform = `translateY(${scrollPos * 0.4}px)`;
+
+            // Navbar Scrolled Glassmorphism Effect
+            const navbar = document.getElementById('navbar');
+            if (scrollPos > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Luxury Custom Cursor Implementation
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Hover expansions for active items
+        const dynamicLinks = document.querySelectorAll('a, button, input, select, textarea, .portfolio-item-card, .service-card-premium');
+        dynamicLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.width = '45px';
+                cursor.style.height = '45px';
+                cursor.style.backgroundColor = 'rgba(181, 151, 90, 0.1)';
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.style.width = '25px';
+                cursor.style.height = '25px';
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+
+        // Before & After Interactive Slider Logic
+        const sliderContainer = document.getElementById('beforeAfterSlider');
+        const afterImgWrapper = document.getElementById('afterImgWrapper');
+        const sliderHandle = document.getElementById('sliderHandle');
+
+        function moveSlider(clientX) {
+            const rect = sliderContainer.getBoundingClientRect();
+            let positionX = clientX - rect.left;
+            
+            // Keep bounds within container width
+            if (positionX < 0) positionX = 0;
+            if (positionX > rect.width) positionX = rect.width;
+
+            const percentage = (positionX / rect.width) * 100;
+            afterImgWrapper.style.width = percentage + '%';
+            sliderHandle.style.left = percentage + '%';
+        }
+
+        sliderContainer.addEventListener('mousemove', (e) => {
+            moveSlider(e.clientX);
+        });
+
+        sliderContainer.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                moveSlider(e.touches[0].clientX);
+            }
+        });
+
+        // Portfolio Category Client-Side Filter Action
+        const filterButtons = document.querySelectorAll('.filter-btn-luxury');
+        const portfolioItems = document.querySelectorAll('.portfolio-item-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active classes
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // WhatsApp Custom Form Lead Automation
+        function sendToWhatsApp() {
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const city = document.getElementById('clientCity').value;
+            const projectType = document.getElementById('projectType').value;
+            const message = document.getElementById('clientMessage').value;
+
+            if (!name || !phone || !city || !projectType || !message) {
+                alert('يرجى ملء جميع الحقول المطلوبة لتجهيز طلبك الفاخر بدقة.');
+                return;
+            }
+
+            const formattedText = `السلام عليكم ورحمة الله وبركاته،\nأود طلب عرض سعر واستشارة من شركة *نول معمار*:\n\n• *الاسم:* ${name}\n• *الجوال:* ${phone}\n• *المدينة:* ${city}\n• *نوع المشروع:* ${projectType}\n• *تفاصيل الرسالة:* ${message}`;
+            const encodedUrl = encodeURIComponent(formattedText);
+            
+            // Open window with absolute link
+            window.open(`https://wa.me/966538900188?text=${encodedUrl}`, '_blank');
+        }
+    </script>
+</body>
+</html>
